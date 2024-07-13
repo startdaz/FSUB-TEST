@@ -34,7 +34,8 @@ from .utils import config, logger
 
 __all__ = [
     "bot",
-    "database" "add_admin",
+    "database",
+    "add_admin",
     "add_fs_chat",
     "add_restart_data_id",
     "del_admin",
