@@ -1,0 +1,30 @@
+{
+  "name": "File Share Telegram Bot",
+  "stack": "container",
+  "env": {
+    "API_ID": {
+      "required": false
+    },
+    "API_HASH": {
+      "required": false
+    },
+    "BOT_TOKEN": {
+      "required": true
+    },
+    "OWNER_ID": {
+      "required": true
+    },
+    "DATABASE_CHAT_ID": {
+      "required": true
+    },
+    "MONGODB_URI": {
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
