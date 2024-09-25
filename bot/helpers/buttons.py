@@ -38,7 +38,7 @@ async def join_buttons(client: Client, message: Message, user_id: int) -> Option
 
     if len(message.command) > 1:
         start_url = f"t.me/{client.me.username}?start={message.command[1]}"
-        button_layouts.append([("Try Again", start_url, "url")])
+        button_layouts.append([("Coba Lagi", start_url, "url")])
 
     return ikb(button_layouts)
 
