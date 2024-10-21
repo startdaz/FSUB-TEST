@@ -4,12 +4,14 @@ from ..utils import BOT_ID, logger
 
 async def initial_database():
     default_start_text = (
-        "Hello, {mention}!\n"
-        "The bot is up and running. These bots can store messages in custom chats, "
-        "and users access them through the bot."
+        "Hallo, {mention}!\n"
+        "Bot sudah aktif dan berjalan. Bot ini dapat menyimpan pesan dalam obrolan khusus, "
+        "dan pengguna mengaksesnya melalui bot.\n"
+        " \n"
+        "Bot ini dikelola oleh @pawwro"
     )
     default_force_text = (
-        "To view messages shared by bots. Join first, then press the Try Again button."
+        "Untuk melihat pesan yang dibagikan oleh bot. Bergabunglah terlebih dahulu, lalu tekan tombol Coba Lagi."
     )
 
     default_key_value_db = {
