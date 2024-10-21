@@ -69,25 +69,25 @@ async def menu_handler_query(_, query: CallbackQuery) -> None:
     if query_data == "generate_status":
         current_status = await get_generate_status()
         await query.message.edit_text(
-            f"Currently Generate Status is <b>{current_status}</b>",
+            f"Saat ini Generate Status adalah <b>{current_status}</b>",
             reply_markup=ikb(helper_buttons.Generate),
         )
     elif query_data == "start":
         current_text = await get_start_text_msg()
         await query.message.edit_text(
-            f"<b>Start Text:</b>\n  {current_text}",
+            f"<b>Teks Start:</b>\n  {current_text}",
             reply_markup=ikb(helper_buttons.Start),
         )
     elif query_data == "force":
         current_text = await get_force_text_msg()
         await query.message.edit_text(
-            f"<b>Force Text:</b>\n  {current_text}",
+            f"<b>Teks Force:</b>\n  {current_text}",
             reply_markup=ikb(helper_buttons.Force),
         )
     elif query_data == "protect_content":
         current_status = await get_protect_content()
         await query.message.edit_text(
-            f"Currently Protect Content is <b>{current_status}</b>",
+            f"Saat ini proteksi konten adalah <b>{current_status}</b>",
             reply_markup=ikb(helper_buttons.Protect),
         )
     elif query_data == "admins":
@@ -112,14 +112,14 @@ async def change_handler_query(_, query: CallbackQuery) -> None:
         await update_generate_status()
         current_status = await get_generate_status()
         await query.message.edit_text(
-            f"Generate Status has been changed to <b>{current_status}</b>",
+            f"Generate Status telah diubah menjadi <b>{current_status}</b>",
             reply_markup=ikb(helper_buttons.Generate_),
         )
     elif query_data == "protect_content":
         await update_protect_content()
         current_status = await get_protect_content()
         await query.message.edit_text(
-            f"Protect Content has been changed to <b>{current_status}</b>",
+            f"Proteksi konten telah diubah menjadi <b>{current_status}</b>",
             reply_markup=ikb(helper_buttons.Protect_),
         )
 
@@ -132,7 +132,7 @@ async def set_handler_query(client: Client, query: CallbackQuery) -> None:
 
     data = "start" if query_data == "start" else "force"
     await query.message.edit_text(
-        f"Send a new {data} text message",
+        f"Kirim pesan teks {data} baru",
         reply_markup=ikb(helper_buttons.Cancel),
     )
 
@@ -148,13 +148,13 @@ async def set_handler_query(client: Client, query: CallbackQuery) -> None:
         await listening.delete()
     except errors.ListenerStopped:
         await query.message.edit_text(
-            "Process has been cancelled!", reply_markup=buttons
+            "Proses telah dibatalkan!", reply_markup=buttons
         )
         return
 
     if not new_text:
         await query.message.edit_text(
-            "Invalid! Just send a text message", reply_markup=buttons
+            "Tidak valid! Kirim saja pesan teks", reply_markup=buttons
         )
     else:
         if query_data == "start":
@@ -163,7 +163,7 @@ async def set_handler_query(client: Client, query: CallbackQuery) -> None:
             await update_force_text_msg(new_text)
 
         await query.message.edit_text(
-            f"New {data} text message:\n  {new_text}", reply_markup=buttons
+            f"Pesan teks {data} baru:\n  {new_text}", reply_markup=buttons
         )
 
 
@@ -192,19 +192,19 @@ async def add_handler_query(client: Client, query: CallbackQuery) -> None:
         new_id = int(listening.text)
     except errors.ListenerStopped:
         await query.message.edit_text(
-            "Process has been cancelled!", reply_markup=buttons
+            "Proses telah dibatalkan!", reply_markup=buttons
         )
         return
     except Exception:
         await query.message.edit_text(
-            f"Invalid! Just send a {data}", reply_markup=buttons
+            f"Tidak valid! Kirim saja {data}", reply_markup=buttons
         )
         return
 
     list_ids = await get_admins() if query_data == "admin" else await get_fs_chats()
     if new_id in list_ids:
         await query.message.edit_text(
-            f"Thats {data} already added", reply_markup=buttons
+            f"{data} Itu sudah ditambahkan", reply_markup=buttons
         )
         return
 
@@ -219,7 +219,7 @@ async def add_handler_query(client: Client, query: CallbackQuery) -> None:
             raise Exception
     except Exception:
         await query.message.edit_text(
-            f"Thats {data} isn't valid!", reply_markup=buttons
+            f"{data} Itu tidak valid!", reply_markup=buttons
         )
         return
 
@@ -231,7 +231,7 @@ async def add_handler_query(client: Client, query: CallbackQuery) -> None:
         await helper_handlers.fs_chats_init()
 
     await query.message.edit_text(
-        f"Added new {entity}: <code>{new_id}</code>", reply_markup=buttons
+        f"Ditambahkan baru {entity}: <code>{new_id}</code>", reply_markup=buttons
     )
 
 
@@ -260,12 +260,12 @@ async def del_handler_query(client: Client, query: CallbackQuery) -> None:
         get_id = int(listening.text)
     except errors.ListenerStopped:
         await query.message.edit_text(
-            "Process has been cancelled!", reply_markup=buttons
+            "Proses telah dibatalkan!", reply_markup=buttons
         )
         return
     except Exception:
         await query.message.edit_text(
-            f"Invalid! Just send a {data}", reply_markup=buttons
+            f"Tidak valid! Kirim saja {data}", reply_markup=buttons
         )
         return
 
