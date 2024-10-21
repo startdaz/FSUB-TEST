@@ -41,7 +41,7 @@ async def broadcast_handler(_, message: Message) -> None:
     if not (broadcast_msg := message.reply_to_message):
         if not BroadcastRunning:
             await message.reply_text(
-                "<i>Reply to the message you want to broadcast!</i>",
+                "<i>Balas pesan yang ingin Anda siarkan!</i>",
                 quote=True,
             )
         else:
@@ -57,7 +57,7 @@ async def broadcast_handler(_, message: Message) -> None:
     else:
         if BroadcastRunning:
             return await message.reply_text(
-                "<i>Currently broadcast is running, check status without reply</i>",
+                "<i>Saat ini siaran sedang berjalan, periksa status tanpa balasan</i>",
                 quote=True,
             )
 
@@ -71,7 +71,7 @@ async def broadcast_handler(_, message: Message) -> None:
     user_ids = [user for user in users if user not in admins]
 
     BroadcastRunning, BroadcastTotal = True, len(user_ids)
-    logger.info("Broadcast: Starting...")
+    logger.info("Broadcast: Memulai...")
 
     for user_id in user_ids:
         if not BroadcastRunning:
@@ -104,14 +104,14 @@ async def broadcast_handler(_, message: Message) -> None:
 
     else:
         await message.reply_text(
-            "<b>Broadcast Stopped</b>\n"
+            "<b>Broadcast Berhenti</b>\n"
             f"<code>  - Sent  : {BroadcastSent}/{BroadcastTotal}</code>\n"
             f"<code>  - Failed: {BroadcastFailed}</code>",
             quote=True,
             reply_markup=ikb(helper_buttons.Close),
         )
 
-        logger.info("Broadcast: Stopped")
+        logger.info("Broadcast: Berhenti")
 
     await progress_msg.delete()
 
@@ -142,7 +142,7 @@ async def broadcast_handler_query(_, query: CallbackQuery) -> None:
         )
 
     elif query_data == "stop":
-        await query.message.edit_text("<i>Broadcast has been stopped!</i>")
+        await query.message.edit_text("<i>Broadcast telah dihentikan!</i>")
 
         BroadcastRunning = False
 
