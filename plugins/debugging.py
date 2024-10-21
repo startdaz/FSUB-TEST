@@ -16,7 +16,7 @@ reply_markup = ikb(helper_buttons.Eval)
 async def evaluate_handler(client: Client, message: Message) -> None:
     if len(message.command) == 1:
         await message.reply_text(
-            "<i>Give code to exec</i>", quote=True, reply_markup=reply_markup
+            "<i>Berikan kode untuk dieksekusi</i>", quote=True, reply_markup=reply_markup
         )
         return
 
@@ -29,7 +29,7 @@ async def evaluate_handler_query(client: Client, query: CallbackQuery) -> None:
     user_id = query.from_user.id
     author_id = query.message.reply_to_message.from_user.id
     if user_id != author_id:
-        await query.answer("Not yours!", show_alert=True)
+        await query.answer("Bukan milikmu!", show_alert=True)
         return
 
     chat_id, msg = query.message.chat.id, query.message
@@ -42,13 +42,13 @@ async def evaluate_handler_query(client: Client, query: CallbackQuery) -> None:
 @Client.on_message(filters.user(config.OWNER_ID) & filters.command(["shell", "sh"]))
 async def shell_handler(client: Client, message: Message) -> None:
     if len(message.command) == 1:
-        await message.reply_text("<i>Give bash code to execute!</i>", quote=True)
+        await message.reply_text("<i>Berikan kode bash untuk dieksekusi!</i>", quote=True)
         return
 
     shell_code = message.text.split(maxsplit=1)[1]
     shell_args = shlex.split(shell_code)
 
-    exec_msg = await message.reply_text("<i>Executing bash code...</i>", quote=True)
+    exec_msg = await message.reply_text("<i>Menjalankan kode bash...</i>", quote=True)
 
     shell_result = ""
     try:
@@ -66,7 +66,7 @@ async def shell_handler(client: Client, message: Message) -> None:
     if len(final_output) > 4096:
         await write_doc("shell_output.txt", shell_result)
 
-        await exec_msg.edit_text("<i>Output too large, sending it as doc...</i>")
+        await exec_msg.edit_text("<i>Output terlalu besar, kirimkan sebagai doc...</i>")
         await client.send_document(
             message.chat.id,
             "shell_output.txt",
@@ -96,10 +96,10 @@ async def restart_handler(client: Client, message: Message) -> None:
 async def async_evaluate_func(
     client: Client, message: Message, reply_msg: Message
 ) -> None:
-    await reply_msg.edit_text("<i>Executing code...</i>")
+    await reply_msg.edit_text("<i>Menjalankan kode...</i>")
 
     if len(message.text.split()) == 1:
-        await reply_msg.edit("<i>Code not found!</i>", reply_markup=reply_markup)
+        await reply_msg.edit("<i>Kode tidak ditemukan!</i>", reply_markup=reply_markup)
         return
 
     eval_vars = {
@@ -121,7 +121,7 @@ async def async_evaluate_func(
         await write_doc("eval_output.txt", str(eval_result))
 
         await reply_msg.edit_text(
-            "<i>Output too large, sending it as doc...</i>",
+            "<i>Output terlalu besar, kirimkan sebagai doc...</i>",
             reply_markup=reply_markup,
         )
         await client.send_document(
