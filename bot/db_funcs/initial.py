@@ -8,7 +8,7 @@ async def initial_database():
         "Bot sudah aktif dan berjalan. Bot ini dapat menyimpan pesan dalam obrolan khusus, "
         "dan pengguna mengaksesnya melalui bot.\n"
         " \n"
-        "Bot ini dikelola oleh @pawwro"
+        "Bot ini dikelola oleh @iniemin"
     )
     default_force_text = (
         "Untuk melihat pesan yang dibagikan oleh bot. Bergabunglah terlebih dahulu, lalu tekan tombol Coba Lagi."
