@@ -4,14 +4,14 @@ from ..utils import BOT_ID, logger
 
 async def initial_database():
     default_start_text = (
-        "Hallo, {mention}!\n"
-        "Bot sudah aktif dan berjalan. Bot ini dapat menyimpan pesan dalam obrolan khusus, "
-        "dan pengguna mengaksesnya melalui bot.\n"
+        "ʜᴀʟʟᴏ, {mention}!\n"
+        "ʙᴏᴛ ꜱᴜᴅᴀʜ ᴀᴋᴛɪꜰ ᴅᴀɴ ʙᴇʀᴊᴀʟᴀɴ. ʙᴏᴛ ɪɴɪ ᴅᴀᴘᴀᴛ ᴍᴇɴʏɪᴍᴘᴀɴ ᴘᴇꜱᴀɴ ᴅᴀʟᴀᴍ ᴏʙʀᴏʟᴀɴ ᴋʜᴜꜱᴜꜱ, "
+        "ᴅᴀɴ ᴘᴇɴɢɢᴜɴᴀ ᴍᴇɴɢᴀᴋꜱᴇꜱɴʏᴀ ᴍᴇʟᴀʟᴜɪ ʙᴏᴛ.\n"
         " \n"
-        "Bot ini dikelola oleh @iniemin"
+        "ʙᴏᴛ ɪɴɪ ᴅɪᴋᴇʟᴏʟᴀ ᴏʟᴇʜ [ᴇᴍɪɴ](https://t.me/{})\n".format(me.username , 'iniemin')
     )
     default_force_text = (
-        "Untuk melihat pesan yang dibagikan oleh bot. Bergabunglah terlebih dahulu, lalu tekan tombol Coba Lagi."
+        "ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴘᴇꜱᴀɴ ʏᴀɴɢ ᴅɪʙᴀɢɪᴋᴀɴ ᴏʟᴇʜ ʙᴏᴛ. ʙᴇʀɢᴀʙᴜɴɢʟᴀʜ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ, ʟᴀʟᴜ ᴛᴇᴋᴀɴ ᴛᴏᴍʙᴏʟ ᴄᴏʙᴀ ʟᴀɢɪ."
     )
 
     default_key_value_db = {
