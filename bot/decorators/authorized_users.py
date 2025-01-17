@@ -14,7 +14,7 @@ def authorized_users_only(func: Callable) -> Callable:
             if isinstance(event, Message):
                 pass
             elif isinstance(event, CallbackQuery):
-                await event.answer("Not yours!", show_alert=True)
+                await event.answer("ʙᴜᴋᴀɴ ᴍɪʟɪᴋᴍᴜ!", show_alert=True)
             return
 
         await func(client, event)
