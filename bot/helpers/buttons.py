@@ -17,7 +17,7 @@ def admin_buttons() -> ikb:
             buttons.append((chat_type, invite_link, "url"))
 
     button_layouts = [buttons[i : i + 3] for i in range(0, len(buttons), 3)]
-    button_layouts.append([("Bot Settings", "settings")])
+    button_layouts.append([("ʙᴏᴛ ꜱᴇᴛᴛɪɴɢꜱ", "ꜱᴇᴛᴛɪɴɢꜱ")])
 
     return ikb(button_layouts)
 
