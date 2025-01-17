@@ -32,7 +32,7 @@ async def join_buttons(client: Client, message: Message, user_id: int) -> Option
     for chat_id in no_join_ids:
         chat_type = fs_data[chat_id]["chat_type"]
         invite_link = fs_data[chat_id]["invite_link"]
-        buttons.append((f"Bergabung {chat_type}", invite_link, "url"))
+        buttons.append((f"ᴊᴏɪɴ ᴋᴇ ꜱɪɴɪ {chat_type}", invite_link, "url"))
 
     button_layouts = [buttons[i : i + 2] for i in range(0, len(buttons), 2)]
 
