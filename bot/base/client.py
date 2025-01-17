@@ -40,11 +40,12 @@ class Bot(Client):
         logger.info("Bot: Commands...")
         await self.set_bot_commands(
             commands=[
-                BotCommand("start", "Start the bot"),
-                BotCommand("ping", "Latency of bot"),
+                BotCommand("start", "ᴍᴇᴍᴜʟᴀɪ ʙᴏᴛ"),
+                BotCommand("ping", "ʟᴀᴛᴇɴꜱɪ ʙᴏᴛ"),
+                BotCommand("batch", "ᴍᴇɴɢᴇʟᴏᴍᴘᴏᴋᴀɴ ᴘᴇꜱᴀɴ"),
             ]
         )
-        logger.info('Bot: Commands = ["start", "ping"]')
+        logger.info('Bot: Commands = ["start", "ping" "batch"]')
 
         logger.info("Bot: ParseMode...")
         self.set_parse_mode(ParseMode.HTML)
