@@ -17,7 +17,7 @@ def admin_buttons() -> ikb:
             buttons.append((chat_type, invite_link, "url"))
 
     button_layouts = [buttons[i : i + 3] for i in range(0, len(buttons), 3)]
-    button_layouts.append([("ʙᴏᴛ ꜱᴇᴛᴛɪɴɢꜱ", "ꜱᴇᴛᴛɪɴɢꜱ")])
+    button_layouts.append([("ʙᴏᴛ ꜱᴇᴛᴛɪɴɢꜱ", "settings")])
 
     return ikb(button_layouts)
 
@@ -38,65 +38,65 @@ async def join_buttons(client: Client, message: Message, user_id: int) -> Option
 
     if len(message.command) > 1:
         start_url = f"t.me/{client.me.username}?start={message.command[1]}"
-        button_layouts.append([("Coba Lagi", start_url, "url")])
+        button_layouts.append([("ᴄᴏʙᴀ ʟᴀɢɪ", start_url, "url")])
 
     return ikb(button_layouts)
 
 
 class HelperButtons(List[List[Tuple[str, str]]]):
-    Close = [[("Close", "close")]]
+    Close = [[("ᴛᴜᴛᴜᴘ", "close")]]
 
-    Broadcast = [[("Ref", "broadcast refresh"), ("Stop", "broadcast stop")]]
+    Broadcast = [[("ʀᴇꜰʙᴄ", "broadcast refresh"), ("ꜱᴛᴏᴘ", "broadcast stop")]]
 
-    Ping = [[("Refresh", "ping")]]
+    Ping = [[("ʀᴇꜰʀᴇꜱʜ", "ping")]]
 
-    Eval = [[("Refresh", "eval")]]
+    Eval = [[("ʀᴇꜰʀᴇꜱʜ", "eval")]]
 
     Menu = [
-        [("Generate Status", "menu generate_status")],
-        [("Start", "menu start"), ("Force", "menu force")],
-        [("Protect Content", "menu protect_content")],
-        [("Admins", "menu admins"), ("FSubs", "menu fsubs")],
-        [("Close", "close")],
+        [("ɢᴇɴᴇʀᴀᴛᴇ ꜱᴛᴀᴛᴜꜱ", "menu generate_status")],
+        [("ꜱᴛᴀʀᴛ", "menu start"), ("ꜰᴏʀᴄᴇ", "menu force")],
+        [("ᴘʀᴏᴛᴇᴋꜱɪ ᴋᴏɴᴛᴇɴ", "menu protect_content")],
+        [("ᴀᴅᴍɪɴ", "menu admins"), ("ꜰꜱᴜʙꜱ", "menu fsubs")],
+        [("ᴛᴜᴛᴜᴘ", "close")],
     ]
 
-    Cancel = [[("Cancel", "cancel")]]
+    Cancel = [[("ʙᴀᴛᴀʟ", "cancel")]]
 
     Generate = [
-        [("« Back", "settings"), ("Change", "change generate_status")],
-        [("Close", "close")],
+        [("« ᴋᴇᴍʙᴀʟɪ", "settings"), ("ᴜʙᴀʜ", "change generate_status")],
+        [("ᴛᴜᴛᴜᴘ", "close")],
     ]
-    Generate_ = [[("« Back", "menu generate_status"), ["Close", "close"]]]
+    Generate_ = [[("« ᴋᴇᴍʙᴀʟɪ", "menu generate_status"), ["ᴛᴜᴛᴜᴘ", "close"]]]
 
     Start = [
-        [("« Back", "settings"), ("Set", "update start")],
-        [("Close", "close")],
+        [("« ᴋᴇᴍʙᴀʟɪ", "settings"), ("ꜱᴇᴛ", "update start")],
+        [("ᴛᴜᴛᴜᴘ", "close")],
     ]
-    Start_ = [[("« Back", "menu start"), ("Close", "close")]]
+    Start_ = [[("« ᴋᴇᴍʙᴀʟɪ", "menu start"), ("ᴛᴜᴛᴜᴘ", "close")]]
 
     Force = [
-        [("« Back", "settings"), ("Set", "update force")],
-        [("Close", "close")],
+        [("« ᴋᴇᴍʙᴀʟɪ", "settings"), ("ꜱᴇᴛ", "update force")],
+        [("ᴛᴜᴛᴜᴘ", "close")],
     ]
-    Force_ = [[("« Back", "menu force"), ("Close", "close")]]
+    Force_ = [[("« ᴋᴇᴍʙᴀʟɪ", "menu force"), ("ᴛᴜᴛᴜᴘ", "close")]]
 
     Protect = [
-        [("« Back", "settings"), ("Change", "change protect_content")],
-        [("Close", "close")],
+        [("« ᴋᴇᴍʙᴀʟɪ", "settings"), ("ᴜʙᴀʜ", "change protect_content")],
+        [("ᴛᴜᴛᴜᴘ", "close")],
     ]
-    Protect_ = [[("« Back", "menu protect_content"), ["Close", "close"]]]
+    Protect_ = [[("« ᴋᴇᴍʙᴀʟɪ", "menu protect_content"), ["ᴛᴜᴛᴜᴘ", "close"]]]
 
     Admins = [
-        [("Add", "add admin"), ("Delete", "del admin")],
-        [("« Back", "settings"), ("Close", "close")],
+        [("ᴛᴀᴍʙᴀʜᴋᴀɴ", "add admin"), ("ʜᴀᴘᴜꜱ", "del admin")],
+        [("« ᴋᴇᴍʙᴀʟɪ", "settings"), ("ᴛᴜᴛᴜᴘ", "close")],
     ]
-    Admins_ = [[("« Back", "menu admins"), ("Close", "close")]]
+    Admins_ = [[("« ᴋᴇᴍʙᴀʟɪ", "menu admins"), ("ᴛᴜᴛᴜᴘ", "close")]]
 
     FSubs = [
-        [("Add", "add fsub"), ("Delete", "del fsub")],
-        [("« Back", "settings"), ("Close", "close")],
+        [("ᴛᴀᴍʙᴀʜᴋᴀɴ", "add fsub"), ("ʜᴀᴘᴜꜱ", "del fsub")],
+        [("« ᴋᴇᴍʙᴀʟɪ", "settings"), ("ᴛᴜᴛᴜᴘ", "close")],
     ]
-    FSubs_ = [[("« Back", "menu fsubs"), ("Close", "close")]]
+    FSubs_ = [[("« ᴋᴇᴍʙᴀʟɪ", "menu fsubs"), ("ᴛᴜᴛᴜᴘ", "close")]]
 
 
 helper_buttons: HelperButtons = HelperButtons()
