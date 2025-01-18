@@ -12,7 +12,7 @@ from bot import helper_buttons
 async def ping_handler(client: Client, message: Message) -> None:
     latency = await ping_function(client)
     await message.reply_text(
-        f"<b>Latency:</b> {latency}",
+        f"<b>ʟᴀᴛᴇɴꜱɪ:</b> {latency}",
         quote=True,
         reply_markup=ikb(helper_buttons.Ping),
     )
