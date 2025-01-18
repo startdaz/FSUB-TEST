@@ -41,12 +41,12 @@ async def broadcast_handler(_, message: Message) -> None:
     if not (broadcast_msg := message.reply_to_message):
         if not BroadcastRunning:
             await message.reply_text(
-                "<i>Balas pesan yang ingin Anda siarkan!</i>",
+                "<i>ʙᴀʟᴀꜱ ᴘᴇꜱᴀɴ ʏᴀɴɢ ɪɴɢɪɴ ᴀɴᴅᴀ ꜱɪᴀʀᴋᴀɴ!</i>",
                 quote=True,
             )
         else:
             await message.reply_text(
-                "<b>Broadcast Status</b>:\n"
+                "<b>ꜱᴛᴀᴛᴜꜱ ʙʀᴏᴀᴅᴄᴀꜱᴛ</b>:\n"
                 f"  - <code>Sent  : {BroadcastSent}/{BroadcastTotal}</code>\n"
                 f"  - <code>Failed: {BroadcastFailed}</code>",
                 quote=True,
@@ -57,12 +57,12 @@ async def broadcast_handler(_, message: Message) -> None:
     else:
         if BroadcastRunning:
             return await message.reply_text(
-                "<i>Saat ini siaran sedang berjalan, periksa status tanpa balasan</i>",
+                "<i>ꜱᴀᴀᴛ ɪɴɪ ꜱɪᴀʀᴀɴ ꜱᴇᴅᴀɴɢ ʙᴇʀᴊᴀʟᴀɴ, ᴘᴇʀɪᴋꜱᴀ ꜱᴛᴀᴛᴜꜱ ᴛᴀɴᴘᴀ ʙᴀʟᴀꜱᴀɴ</i>",
                 quote=True,
             )
 
     progress_msg = await message.reply_text(
-        "<i>Broadcasting...</i>",
+        "<i>ʙʀᴏᴀᴅᴄᴀꜱᴛɪɴɢ...</i>",
         quote=True,
         reply_markup=ikb(helper_buttons.Broadcast),
     )
@@ -93,7 +93,7 @@ async def broadcast_handler(_, message: Message) -> None:
 
     if BroadcastSent + BroadcastFailed == BroadcastTotal:
         await message.reply_text(
-            "<b>Broadcast Finished</b>\n"
+            "<b>ʙʀᴏᴀᴅᴄᴀꜱᴛ ᴛᴇʟᴀʜ ꜱᴇʟᴇꜱᴀɪ</b>\n"
             f"<code>  - Sent  : {BroadcastSent}/{BroadcastTotal}</code>\n"
             f"<code>  - Failed: {BroadcastFailed}</code>",
             quote=True,
@@ -104,7 +104,7 @@ async def broadcast_handler(_, message: Message) -> None:
 
     else:
         await message.reply_text(
-            "<b>Broadcast Berhenti</b>\n"
+            "<b>ʙʀᴏᴀᴅᴄᴀꜱᴛ ʙᴇʀʜᴇɴᴛɪ</b>\n"
             f"<code>  - Sent  : {BroadcastSent}/{BroadcastTotal}</code>\n"
             f"<code>  - Failed: {BroadcastFailed}</code>",
             quote=True,
@@ -132,17 +132,17 @@ async def broadcast_handler_query(_, query: CallbackQuery) -> None:
 
     query_data = query.data.split()[1]
     if query_data == "refresh":
-        await query.message.edit_text("<i>Refreshing...</i>")
+        await query.message.edit_text("<i>ʀᴇꜰʀᴇꜱʜɪɴɢ...</i>")
 
         await query.message.edit_text(
-            "<b>Broadcast Status</b>:\n"
+            "<b>ꜱᴛᴀᴛᴜꜱ ʙʀᴏᴀᴅᴄᴀꜱᴛ</b>:\n"
             f"  - <code>Sent  : {BroadcastSent}/{BroadcastTotal}</code>\n"
             f"  - <code>Failed: {BroadcastFailed}</code>",
             reply_markup=ikb(helper_buttons.Broadcast),
         )
 
     elif query_data == "stop":
-        await query.message.edit_text("<i>Broadcast telah dihentikan!</i>")
+        await query.message.edit_text("<i>ʙʀᴏᴀᴅᴄᴀꜱᴛ ᴛᴇʟᴀʜ ᴅɪʜᴇɴᴛɪᴋᴀɴ!</i>")
 
         BroadcastRunning = False
 
@@ -154,7 +154,7 @@ async def broadcast_progress(message: Message) -> Message:
 
     with contextlib.suppress(Exception):
         await message.edit_text(
-            "<b>Broadcast Status</b>:\n"
+            "<b>ꜱᴛᴀᴛᴜꜱ ʙʀᴏᴀᴅᴄᴀꜱᴛ</b>:\n"
             f"  - <code>Sent  : {BroadcastSent}/{BroadcastTotal}</code>\n"
             f"  - <code>Failed: {BroadcastFailed}</code>",
             reply_markup=ikb(helper_buttons.Broadcast),
