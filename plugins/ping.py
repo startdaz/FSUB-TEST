@@ -20,10 +20,10 @@ async def ping_handler(client: Client, message: Message) -> None:
 
 @Client.on_callback_query(filters.regex(r"^ping$"))
 async def ping_handler_query(client: Client, query: CallbackQuery) -> None:
-    await query.message.edit_text("<i>Refreshing...</i>")
+    await query.message.edit_text("<i>ᴍᴇɴʏᴇɢᴀʀᴋᴀɴ...</i>")
     latency = await ping_function(client)
     await query.message.edit_text(
-        f"<b>Latency:</b> {latency}", reply_markup=ikb(helper_buttons.Ping)
+        f"<b>ʟᴀᴛᴇɴꜱɪ:</b> {latency}", reply_markup=ikb(helper_buttons.Ping)
     )
 
 
