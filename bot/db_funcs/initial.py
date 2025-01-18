@@ -4,7 +4,7 @@ from ..utils import BOT_ID, logger
 
 async def initial_database():
     default_start_text = (
-        "ʜᴀʟʟᴏ, {full_name}!\n"
+        "ʜᴀʟʟᴏ, {first_name}!\n"
         "ʙᴏᴛ ꜱᴜᴅᴀʜ ᴀᴋᴛɪꜰ ᴅᴀɴ ʙᴇʀᴊᴀʟᴀɴ. ʙᴏᴛ ɪɴɪ ᴅᴀᴘᴀᴛ ᴍᴇɴʏɪᴍᴘᴀɴ ᴘᴇꜱᴀɴ ᴅᴀʟᴀᴍ ᴏʙʀᴏʟᴀɴ ᴋʜᴜꜱᴜꜱ, "
         "ᴅᴀɴ ᴘᴇɴɢɢᴜɴᴀ ᴍᴇɴɢᴀᴋꜱᴇꜱɴʏᴀ ᴍᴇʟᴀʟᴜɪ ʙᴏᴛ.\n"
         " \n"
