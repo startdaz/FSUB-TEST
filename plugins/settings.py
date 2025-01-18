@@ -75,7 +75,7 @@ async def menu_handler_query(_, query: CallbackQuery) -> None:
     elif query_data == "start":
         current_text = await get_start_text_msg()
         await query.message.edit_text(
-            f"<b>ᴛᴇᴋꜱ ꜱᴛᴀʀᴛ:</b>\n  {current_text}",
+            f"<b>ᴛᴇᴋꜱ ꜱᴛᴀʀᴛ:</b>\n {current_text}",
             reply_markup=ikb(helper_buttons.Start),
         )
     elif query_data == "force":
