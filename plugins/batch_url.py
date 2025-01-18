@@ -12,7 +12,7 @@ from bot import authorized_users_only, config, url_safe
 async def batch_handler(client: Client, message: Message) -> None:
     database_chat_id = config.DATABASE_CHAT_ID
 
-    ask_text = "Teruskan pesan dari database chat_id\n\n Waktu habis: 30 detik"
+    ask_text = "ᴛᴇʀᴜꜱᴋᴀɴ ᴘᴇꜱᴀɴ ᴅᴀʀɪ ᴄʜᴀɴɴᴇʟ ᴅᴀᴛᴀʙᴀꜱᴇ\n\n ᴡᴀᴋᴛᴜ ʜᴀʙɪꜱ: 30 ᴅᴇᴛɪᴋ"
     first_message = await ask_helper_func(client, message, ask_text)
     if not first_message:
         return
@@ -50,7 +50,7 @@ async def ask_helper_func(
             timeout=30,
         )
     except errors.ListenerTimeout:
-        await message.reply_text("Batas waktu tercapai!\n Proses telah dibatalkan")
+        await message.reply_text("ʙᴀᴛᴀꜱ ᴡᴀᴋᴛᴜ ᴛᴇʀᴄᴀᴘᴀɪ!\n ᴘʀᴏꜱᴇꜱ ᴛᴇʟᴀʜ ᴅɪʙᴀᴛᴀʟᴋᴀɴ")
         return
 
     if (
@@ -58,7 +58,7 @@ async def ask_helper_func(
         or ask_message.forward_from_chat.id != config.DATABASE_CHAT_ID
     ):
         await ask_message.reply_text(
-            "<i>Pesan tidak valid!\n Teruskan saja pesan dari database chat_id</i>",
+            "<i>ᴘᴇꜱᴀɴ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ!\n ᴛᴇʀᴜꜱᴋᴀɴ ꜱᴀᴊᴀ ᴘᴇꜱᴀɴ ᴅᴀʀɪ ᴄʜᴀɴɴᴇʟ ᴅᴀᴛᴀʙᴀꜱᴇ</i>",
             quote=True,
         )
         return
