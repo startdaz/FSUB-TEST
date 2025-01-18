@@ -38,7 +38,7 @@ async def cancel_handler_query(client: Client, query: CallbackQuery) -> None:
 @authorized_users_only
 async def settings_handler_query(_, query: CallbackQuery) -> None:
     await query.message.edit_text(
-        "<b>Bot Settings:</b>", reply_markup=ikb(helper_buttons.Menu)
+        "<b>ʙᴏᴛ ꜱᴇᴛᴛɪɴɢꜱ:</b>", reply_markup=ikb(helper_buttons.Menu)
     )
 
 
@@ -69,36 +69,36 @@ async def menu_handler_query(_, query: CallbackQuery) -> None:
     if query_data == "generate_status":
         current_status = await get_generate_status()
         await query.message.edit_text(
-            f"Saat ini Generate Status adalah <b>{current_status}</b>",
+            f"ꜱᴀᴀᴛ ɪɴɪ ɢᴇɴᴇʀᴀᴛᴇ ꜱᴛᴀᴛᴜꜱ ᴀᴅᴀʟᴀʜ <b>{current_status}</b>",
             reply_markup=ikb(helper_buttons.Generate),
         )
     elif query_data == "start":
         current_text = await get_start_text_msg()
         await query.message.edit_text(
-            f"<b>Teks Start:</b>\n  {current_text}",
+            f"<b>ᴛᴇᴋꜱ ꜱᴛᴀʀᴛ:</b>\n  {current_text}",
             reply_markup=ikb(helper_buttons.Start),
         )
     elif query_data == "force":
         current_text = await get_force_text_msg()
         await query.message.edit_text(
-            f"<b>Teks Force:</b>\n  {current_text}",
+            f"<b>ᴛᴇᴋꜱ ꜰᴏʀᴄᴇ:</b>\n  {current_text}",
             reply_markup=ikb(helper_buttons.Force),
         )
     elif query_data == "protect_content":
         current_status = await get_protect_content()
         await query.message.edit_text(
-            f"Saat ini proteksi konten adalah <b>{current_status}</b>",
+            f"ꜱᴀᴀᴛ ɪɴɪ ᴘʀᴏᴛᴇᴋꜱɪ ᴋᴏɴᴛᴇɴ ᴀᴅᴀʟᴀʜ <b>{current_status}</b>",
             reply_markup=ikb(helper_buttons.Protect),
         )
     elif query_data == "admins":
         list_admins = await get_admins()
-        list_admins = format_list_items("<b>List Admins</b>", list_admins)
+        list_admins = format_list_items("<b>ʟɪꜱᴛ ᴀᴅᴍɪɴꜱ</b>", list_admins)
         await query.message.edit_text(
             list_admins, reply_markup=ikb(helper_buttons.Admins)
         )
     elif query_data == "fsubs":
         list_fsubs = await get_fs_chats()
-        list_fsubs = format_list_items("<b>List FSubs</b>", list_fsubs)
+        list_fsubs = format_list_items("<b>ʟɪꜱᴛ ꜰꜱᴜʙꜱ</b>", list_fsubs)
         await query.message.edit_text(
             list_fsubs, reply_markup=ikb(helper_buttons.FSubs)
         )
@@ -112,14 +112,14 @@ async def change_handler_query(_, query: CallbackQuery) -> None:
         await update_generate_status()
         current_status = await get_generate_status()
         await query.message.edit_text(
-            f"Generate Status telah diubah menjadi <b>{current_status}</b>",
+            f"ɢᴇɴᴇʀᴀᴛᴇ ꜱᴛᴀᴛᴜꜱ ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴍᴇɴᴊᴀᴅɪ <b>{current_status}</b>",
             reply_markup=ikb(helper_buttons.Generate_),
         )
     elif query_data == "protect_content":
         await update_protect_content()
         current_status = await get_protect_content()
         await query.message.edit_text(
-            f"Proteksi konten telah diubah menjadi <b>{current_status}</b>",
+            f"ᴘʀᴏᴛᴇᴋꜱɪ ᴋᴏɴᴛᴇɴ ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴍᴇɴᴊᴀᴅɪ <b>{current_status}</b>",
             reply_markup=ikb(helper_buttons.Protect_),
         )
 
@@ -132,7 +132,7 @@ async def set_handler_query(client: Client, query: CallbackQuery) -> None:
 
     data = "start" if query_data == "start" else "force"
     await query.message.edit_text(
-        f"Kirim pesan teks {data} baru",
+        f"ᴋɪʀɪᴍ ᴘᴇꜱᴀɴ ᴛᴇᴋꜱ {data} ʙᴀʀᴜ",
         reply_markup=ikb(helper_buttons.Cancel),
     )
 
@@ -148,13 +148,13 @@ async def set_handler_query(client: Client, query: CallbackQuery) -> None:
         await listening.delete()
     except errors.ListenerStopped:
         await query.message.edit_text(
-            "Proses telah dibatalkan!", reply_markup=buttons
+            "ᴘʀᴏꜱᴇꜱ ᴛᴇʟᴀʜ ᴅɪʙᴀᴛᴀʟᴋᴀɴ!", reply_markup=buttons
         )
         return
 
     if not new_text:
         await query.message.edit_text(
-            "Tidak valid! Kirim saja pesan teks", reply_markup=buttons
+            "ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ! ᴋɪʀɪᴍ ꜱᴀᴊᴀ ᴘᴇꜱᴀɴ ᴛᴇᴋꜱ", reply_markup=buttons
         )
     else:
         if query_data == "start":
@@ -163,7 +163,7 @@ async def set_handler_query(client: Client, query: CallbackQuery) -> None:
             await update_force_text_msg(new_text)
 
         await query.message.edit_text(
-            f"Pesan teks {data} baru:\n  {new_text}", reply_markup=buttons
+            f"ᴘᴇꜱᴀɴ ᴛᴇᴋꜱ {data} ʙᴀʀᴜ:\n  {new_text}", reply_markup=buttons
         )
 
 
@@ -176,7 +176,7 @@ async def add_handler_query(client: Client, query: CallbackQuery) -> None:
     data = "user_id" if query_data == "admin" else "chat_id"
     entity = "admin" if query_data == "admin" else "fsub"
     await query.message.edit_text(
-        f"Send a new {data} to add {entity}",
+        f"ᴋɪʀɪᴍᴋᴀɴ ʙᴀʀᴜ {data} ᴜɴᴛᴜᴋ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ {entity}",
         reply_markup=ikb(helper_buttons.Cancel),
     )
 
@@ -192,19 +192,19 @@ async def add_handler_query(client: Client, query: CallbackQuery) -> None:
         new_id = int(listening.text)
     except errors.ListenerStopped:
         await query.message.edit_text(
-            "Proses telah dibatalkan!", reply_markup=buttons
+            "ᴘʀᴏꜱᴇꜱ ᴛᴇʟᴀʜ ᴅɪʙᴀᴛᴀʟᴋᴀɴ!", reply_markup=buttons
         )
         return
     except Exception:
         await query.message.edit_text(
-            f"Tidak valid! Kirim saja {data}", reply_markup=buttons
+            f"ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ! ᴋɪʀɪᴍ ꜱᴀᴊᴀ {data}", reply_markup=buttons
         )
         return
 
     list_ids = await get_admins() if query_data == "admin" else await get_fs_chats()
     if new_id in list_ids:
         await query.message.edit_text(
-            f"{data} Itu sudah ditambahkan", reply_markup=buttons
+            f"{data} ɪᴛᴜ ꜱᴜᴅᴀʜ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ", reply_markup=buttons
         )
         return
 
@@ -219,7 +219,7 @@ async def add_handler_query(client: Client, query: CallbackQuery) -> None:
             raise Exception
     except Exception:
         await query.message.edit_text(
-            f"{data} Itu tidak valid!", reply_markup=buttons
+            f"{data} ɪᴛᴜ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ!", reply_markup=buttons
         )
         return
 
@@ -231,7 +231,7 @@ async def add_handler_query(client: Client, query: CallbackQuery) -> None:
         await helper_handlers.fs_chats_init()
 
     await query.message.edit_text(
-        f"Ditambahkan baru {entity}: <code>{new_id}</code>", reply_markup=buttons
+        f"ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ʙᴀʀᴜ {entity}: <code>{new_id}</code>", reply_markup=buttons
     )
 
 
@@ -244,7 +244,7 @@ async def del_handler_query(client: Client, query: CallbackQuery) -> None:
     data = "user_id" if query_data == "admin" else "chat_id"
     entity = "admin" if query_data == "admin" else "fsub"
     await query.message.edit_text(
-        f"Send a new {data} to delete {entity}",
+        f"ᴋɪʀɪᴍᴋᴀɴ ʙᴀʀᴜ {data} ᴜɴᴛᴜᴋ ᴅɪʜᴀᴘᴜꜱ {entity}",
         reply_markup=ikb(helper_buttons.Cancel),
     )
 
@@ -260,18 +260,18 @@ async def del_handler_query(client: Client, query: CallbackQuery) -> None:
         get_id = int(listening.text)
     except errors.ListenerStopped:
         await query.message.edit_text(
-            "Proses telah dibatalkan!", reply_markup=buttons
+            "ᴘʀᴏꜱᴇꜱ ᴛᴇʟᴀʜ ᴅɪʙᴀᴛᴀʟᴋᴀɴ!", reply_markup=buttons
         )
         return
     except Exception:
         await query.message.edit_text(
-            f"Tidak valid! Kirim saja {data}", reply_markup=buttons
+            f"ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ! ᴋɪʀɪᴍ ꜱᴀᴊᴀ {data}", reply_markup=buttons
         )
         return
 
     list_ids = await get_admins() if query_data == "admin" else await get_fs_chats()
     if get_id not in list_ids:
-        await query.message.edit_text(f"Thats {data} not found", reply_markup=buttons)
+        await query.message.edit_text(f"{data} ɪᴛᴜ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ", reply_markup=buttons)
         return
 
     if query_data == "admin":
@@ -287,6 +287,6 @@ async def del_handler_query(client: Client, query: CallbackQuery) -> None:
         await helper_handlers.fs_chats_init()
 
     await query.message.edit_text(
-        f"The {entity} has been deleted: <code>{get_id}</code>",
+        f" {entity} ᴛᴇʟᴀʜ ᴅɪʜᴀᴘᴜꜱ: <code>{get_id}</code>",
         reply_markup=buttons,
     )
