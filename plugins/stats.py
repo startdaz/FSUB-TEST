@@ -10,4 +10,4 @@ async def users_handler(_, message: Message) -> None:
     counting_message = await message.reply_text("ᴍᴇɴɢʜɪᴛᴜɴɢ...", quote=True)
 
     total_users = await get_users()
-    await counting_message.edit_text(f"<code>{len(total_users)}</code> users")
+    await counting_message.edit_text(f"<code>{len(total_users)}</code> ᴘᴇɴɢɢᴜɴᴀ")
