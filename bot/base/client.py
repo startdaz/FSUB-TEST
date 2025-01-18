@@ -43,9 +43,11 @@ class Bot(Client):
                 BotCommand("start", "ᴍᴇᴍᴜʟᴀɪ ʙᴏᴛ"),
                 BotCommand("ping", "ʟᴀᴛᴇɴꜱɪ ʙᴏᴛ"),
                 BotCommand("batch", "ᴍᴇɴɢᴇʟᴏᴍᴘᴏᴋᴀɴ ᴘᴇꜱᴀɴ"),
+                BotCommand("broadcast", "ʙʀᴏᴀᴅᴄᴀꜱᴛ ᴘᴇꜱᴀɴ"),
+                BotCommand("users", "ᴊᴜᴍʟᴀʜ ᴘᴇɴɢɢᴜɴᴀ ʙᴏᴛ"),
             ]
         )
-        logger.info('Bot: Commands = ["start", "ping" "batch"]')
+        logger.info('Bot: Commands = ["start", "ping", "batch", "broadcast", "users"]')
 
         logger.info("Bot: ParseMode...")
         self.set_parse_mode(ParseMode.HTML)
