@@ -1,4 +1,24 @@
 import os
+from dotenv import load_dotenv
+
+# Muat variabel dari file .env
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ENV_PATH = os.path.join(BASE_DIR, "config.env")
+load_dotenv(ENV_PATH)
+
+class Config:
+    API_ID = int(os.getenv("API_ID", 1234))  # Default jika tidak ditemukan di .env
+    API_HASH: str = os.getenv("API_HASH", "b184")
+    BOT_TOKEN: str = os.getenv("BOT_TOKEN", "7u9jl")
+    OWNER_ID = int(os.getenv("OWNER_ID", 1234))
+    MONGODB_URI: str = os.getenv("MONGODB_URI", "mongodb://root:passwd@mongo")
+    DATABASE_CHAT_ID = int(os.getenv("DATABASE_CHAT_ID", -100))
+
+config: "Config" = Config()
+BOT_ID = config.BOT_TOKEN.split(":", 1)[0]
+
+"""
+import os
 
 
 class Config:
@@ -12,3 +32,4 @@ class Config:
 
 config: "Config" = Config()
 BOT_ID = config.BOT_TOKEN.split(":", 1)[0]
+"""
