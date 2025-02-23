@@ -2,20 +2,21 @@ import os
 from dotenv import load_dotenv
 
 # Muat variabel dari file .env
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ENV_PATH = os.path.join(BASE_DIR, "config.env")
-load_dotenv(ENV_PATH)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Ambil path FSUB-TEST
+ENV_PATH = os.path.join(BASE_DIR, ".env")
+load_dotenv(ENV_PATH, override=True)  # Pastikan variabel di .env digunakan
 
 class Config:
-    API_ID = int(os.getenv("API_ID", 1234))  # Default jika tidak ditemukan di .env
-    API_HASH: str = os.getenv("API_HASH", "b184")
-    BOT_TOKEN: str = os.getenv("BOT_TOKEN", "7u9jl")
-    OWNER_ID = int(os.getenv("OWNER_ID", 1234))
-    MONGODB_URI: str = os.getenv("MONGODB_URI", "mongodb://root:passwd@mongo")
-    DATABASE_CHAT_ID = int(os.getenv("DATABASE_CHAT_ID", -100))
+    API_ID = int(os.getenv("API_ID")) if os.getenv("API_ID") else None
+    API_HASH = os.getenv("API_HASH") or ""
+    BOT_TOKEN = os.getenv("BOT_TOKEN") or ""
+    OWNER_ID = int(os.getenv("OWNER_ID")) if os.getenv("OWNER_ID") else None
+    MONGODB_URI = os.getenv("MONGODB_URI") or ""
+    DATABASE_CHAT_ID = int(os.getenv("DATABASE_CHAT_ID")) if os.getenv("DATABASE_CHAT_ID") else None
 
-config: "Config" = Config()
-BOT_ID = config.BOT_TOKEN.split(":", 1)[0]
+config = Config()
+BOT_ID = config.BOT_TOKEN.split(":", 1)[0] if config.BOT_TOKEN else None
+
 
 """
 import os
